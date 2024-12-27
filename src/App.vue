@@ -10,26 +10,23 @@ import axios from 'axios';
       }
     },
     computed:{
-      findWeather(){
-        return `Узнать погоду в ${this.checkingСity()}`
+      findWeather() {
+        return `Узнать погоду в ${this.checkingСity}`
       },
-      temp(){
-        return 'Температура: ' + this.info.main.temp
+      temp() {
+        return `Температура: ${this.info.main.temp}`
       },
-      tempMax(){
-        return 'Максимальная температура: ' + this.info.main.temp_max
+      tempMax() {
+        return `Максимальная температура: ${this.info.main.temp_max}`
       },
-      tempMin(){
-        return 'Минимальная температура: ' + this.info.main.temp_min
-      }
+      tempMin() {
+        return `Минимальная температура: ${this.info.main.temp_min}`
+      },
+      checkingСity() {
+        return !this.city ? 'вашем городе' : `городе ${this.city}`;
+      },
     },
     methods: {
-      checkingСity(){
-        if (this.city == ''){
-          return 'вашем городе'
-        }
-          return 'городе ' + this.city
-      },
       async getWeather() {
         try {
           if (this.city.trim().length < 2) {
