@@ -51,7 +51,6 @@ import axios from 'axios';
         
     },
   }
-  // (res => (this.info = res.data))
 </script>
 
 <template>
